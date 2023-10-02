@@ -1,0 +1,246 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,700&family=Epilogue:wght@500;700&family=Overpass:wght@500;700&display=swap");
+
+
+$primaryColor: #FF00FF;
+$progressStepsColor: #cecece;
+
+@mixin button{
+        border: none;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background: $primaryColor;
+        font-size: 25px;
+        text-align: center;
+        color: #f3f3f3;
+        cursor: pointer;
+}
+
+@mixin input{
+    width: 100%;
+    margin-bottom: 25px;
+    padding: 10px;
+    outline: none;
+    border-radius: 10px;
+    border: none;
+}
+
+@mixin progressContainer{
+    width: 80%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: auto;
+    margin-bottom: 50px;
+    counter-reset: circle;
+}
+
+*,
+*::before,
+*::after{
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0; 
+}
+
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+  background: #1b1c1e;
+  font-family: "Overpass", sans-serif;
+}
+
+.container{
+    width: 30%;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    background: #f3f3f3;
+    border: 1px solid $primaryColor;
+    padding: 10px;
+    border-radius: 10px;
+}
+h1{
+    text-align: center;
+    padding: 30px;
+}
+
+
+.progress-container{
+    @include progressContainer;
+    &::before{
+        content: "";
+        background: $progressStepsColor;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 100%;
+        height: 4px;
+    }
+.progress-bar{
+        background: $primaryColor;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 0%;
+        height: 4px;
+       transition: 0.3s;
+}
+}
+.progress-circles{
+    width: 80%;
+    width: 35px;
+    height: 35px;
+    background: $progressStepsColor;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    &::before{
+        counter-increment: circle;
+        content: counter(circle);
+    }
+    &::after{
+        content: attr(data-title);
+        position: absolute;
+        top: 100%;
+        font-size: 15px;
+        font-weight: 700;
+        color: #929292;
+        margin: 8px 0;
+    }
+   
+}
+.active{
+    background: $primaryColor;
+    font-weight: 700;
+    color: white;
+}
+
+.form-page{
+    width: 100%;
+    display: none;
+    transform-origin: top;
+    animation: form 0.5s;
+}
+.form-page-active{
+    display: block;
+}
+
+@keyframes form{
+    from {
+        transform: scale(1,0);
+        opacity: 0;
+    } to {
+        transform: scale(1, 1);
+        opacity: 1;
+    }
+}
+    .input-group{
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        label{
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+        input{
+          @include input;
+        }
+        select{
+            @include input;
+        }
+    }
+    .btn-group{
+        width: 80%;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        margin-top: 20px;
+       .btn{
+        @include button;
+        &:hover{
+          background-color: #1b1c1e;
+          transition: 0.4s;  
+        }
+        &:disabled{
+            cursor: not-allowed;
+            background-color: $progressStepsColor;
+        }
+       }
+    }
+
+
+    @media (max-width: 890px) {
+        .container{
+            width: 50%;
+            
+        }
+        h1{
+         font-size: 2rem;
+        }
+    }
+    @media (max-width: 480px) {
+        .container{
+            width: 90%;
+            
+        }
+        h1{
+         font-size: 1.45rem;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

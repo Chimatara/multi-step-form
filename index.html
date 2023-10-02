@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi Step Form</title>
+    <link rel="stylesheet" href="css/form.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Registration Form</h1>
+
+      <!-- progressbar -->
+     <div class="progress-container">
+        <div class="progress-bar"></div>
+        <div class="progress-circles active" data-title="name"></div>
+        <div class="progress-circles" data-title="contact"></div>
+        <div class="progress-circles" data-title="info"></div>
+        <div class="progress-circles" data-title="password"></div>
+     </div>
+
+        <div class="form-page form-page-active">
+            <div class="input-group">
+                <label for="name">First Name</label>
+                <input type="text" placeholder="Enter first name">
+            </div>
+            <div class="input-group">
+                <label for="name">Last Name</label>
+                <input type="text" placeholder="Enter last name">
+            </div>
+            
+            <div class="btn-group">
+                <button class="btn prev" disabled>&#8249</button>
+                <button class="btn next">&#8250</button>
+            </div>
+        </div>
+
+        <div class="form-page">
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" placeholder="abc@example.com">
+            </div>
+            <div class="input-group">
+                <label for="phone">Phone</label>
+                <input type="number" placeholder="00000000">
+            </div>
+            
+            <div class="btn-group">
+                <button class="btn prev">&#8249</button>
+                <button class="btn next">&#8250</button>
+            </div>
+        </div>
+
+        <div class="form-page">
+            <div class="input-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date">
+            </div>
+            <div class="input-group">
+                <label for="gender">Gender</label>
+                <select name="gender" class="input">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+
+                </select>
+            </div>
+            
+            <div class="btn-group">
+                <button class="btn prev">&#8249</button>
+                <button class="btn next">&#8250</button>
+            </div>
+        </div>
+
+        <div class="form-page">
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" placeholder="*****">
+            </div>
+            <div class="input-group">
+                <label for="password">Confirm Password</label>
+                <input type="password" placeholder="*****">
+            </div>
+            
+            <div class="btn-group">
+                <button class="btn prev">&#8249</button>
+                <button class="btn next submit" disabled>&#8250</button>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+
+
+    <script src="form.js"></script>
+</body>
+</html>
